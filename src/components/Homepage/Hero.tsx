@@ -14,7 +14,7 @@ const Hero = () => {
       />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <h1 className="text-5xl font-semibold tracking-tight md:text-7xl">
+        <h1 className="text-5xl font-sans font-semibold tracking-tight md:text-7xl">
           Little Loops
         </h1>
         
