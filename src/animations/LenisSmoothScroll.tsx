@@ -51,7 +51,6 @@ const LenisSmoothScroll = ({
         duration,
         lerp,
         smoothWheel,
-        smoothTouch: true,
         syncTouch: true,
         wheelMultiplier,
         touchMultiplier,

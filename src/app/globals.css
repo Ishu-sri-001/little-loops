@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: #f8efe7;
@@ -11,6 +15,22 @@
   --supporting: #bfd8d0;
   --highlight: #fdeedb;
   --clean: #ffffef;
+
+  /* shadcn/ui tokens, mapped onto the palette above */
+  --card: var(--highlight);
+  --card-foreground: var(--foreground);
+  --popover: var(--clean);
+  --popover-foreground: var(--foreground);
+  --primary-foreground: var(--foreground);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--neutral);
+  --muted-foreground: color-mix(in oklab, var(--foreground) 65%, transparent);
+  --accent-foreground: var(--clean);
+  --destructive: #b3412f;
+  --border: color-mix(in oklab, var(--foreground) 18%, transparent);
+  --input: color-mix(in oklab, var(--foreground) 22%, transparent);
+  --ring: var(--foreground);
+  --radius: 0.75rem;
 }
 
 @theme inline {
@@ -25,6 +45,26 @@
   --color-highlight: var(--highlight);
   --color-clean: var(--clean);
 
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-playfair);
   --font-accent: var(--font-allura);
@@ -34,4 +74,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), sans-serif;
+}
+
+/* Scrollbar: thin, square-edged, in the dark brand brown */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--foreground) 75%, black);
+}
+::-webkit-scrollbar-corner {
+  background: var(--background);
+}
+/* Firefox only: Chromium would otherwise swap the square webkit thumb for its rounded default */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground) var(--background);
+  }
 }
